@@ -71,7 +71,10 @@ namespace MVC5Course.Controllers
 
         public ActionResult Details(int id)
         {
-            var data = db.Product.Find(id);
+            //var data = db.Product.Find(id);
+
+            var data = db.Database.SqlQuery<Product>("SELECT * FROM dbo.Product WHERE ProductID=@p0", id).FirstOrDefault();
+
             return View(data);
         }
 
