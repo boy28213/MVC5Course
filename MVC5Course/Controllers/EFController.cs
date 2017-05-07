@@ -18,7 +18,7 @@ namespace MVC5Course.Controllers
             var all = db.Product.AsQueryable();
 
             var data = all
-                .Where(p => p.IsDeleted == false && 
+                .Where(p => p.Is刪除 == false && 
                        p.Active == true && 
                        p.ProductName.Contains("Black"))
                 .OrderByDescending(p => p.ProductId);
@@ -87,7 +87,7 @@ namespace MVC5Course.Controllers
 
             //db.Product.Remove(product);
 
-            product.IsDeleted = true;
+            product.Is刪除 = true;
 
             try
             {
