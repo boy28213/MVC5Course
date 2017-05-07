@@ -75,6 +75,13 @@ namespace MVC5Course.Controllers
         public ActionResult Delete(int id)
         {
             var product = db.Product.Find(id);
+            // 刪除相關聯的Product, 若沒刪除關聯則無法刪除
+            //foreach (var item in product.OrderLine.ToList())
+            //{
+            //    db.OrderLine.Remove(item);
+            //}
+            db.OrderLine.RemoveRange(product.OrderLine);
+
             db.Product.Remove(product);
             db.SaveChanges();
 
