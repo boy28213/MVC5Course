@@ -1,6 +1,7 @@
 ﻿using MVC5Course.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,8 +17,10 @@ namespace MVC5Course.Controllers
         {
             var all = db.Product.AsQueryable();
 
-            var data = all.Where(p => p.Active == true &&
-                p.ProductName.Contains("Black"))
+            var data = all
+                .Where(p => p.IsDeleted == false && 
+                       p.Active == true && 
+                       p.ProductName.Contains("Black"))
                 .OrderByDescending(p => p.ProductId);
 
             return View(data);
@@ -80,10 +83,21 @@ namespace MVC5Course.Controllers
             //{
             //    db.OrderLine.Remove(item);
             //}
-            db.OrderLine.RemoveRange(product.OrderLine);
+            //db.OrderLine.RemoveRange(product.OrderLine);
 
-            db.Product.Remove(product);
-            db.SaveChanges();
+            //db.Product.Remove(product);
+
+            product.IsDeleted = true;
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+
+                throw ex;
+            }
 
             return RedirectToAction("Index");
         }
