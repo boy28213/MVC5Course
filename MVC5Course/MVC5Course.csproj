@@ -242,7 +242,6 @@
     <Compile Include="Models\Product.Partial.cs">
       <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ValidationAttributes\MaxWordsAttribute.cs" />
     <Compile Include="Models\ValidationAttributes\商品名稱必須包含Nas字串Attribute.cs" />
     <Compile Include="Models\ViewModel\ProductLiteVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
