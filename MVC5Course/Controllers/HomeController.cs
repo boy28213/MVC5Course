@@ -18,11 +18,6 @@ namespace MVC5Course.Controllers
             return View();
         }
 
-        public ActionResult GetFile()
-        {
-            return File(Server.MapPath("~/Images/WannaCry.png"), "image/png", "WannaCry.png");
-        }
-
         public ActionResult SomeAction()
         {
             //Response.Write("<script>alert('建立成功!'); location.href='/';</script>");
@@ -30,6 +25,18 @@ namespace MVC5Course.Controllers
             //return Content("<script>alert('建立成功!'); location.href='/';</script>");
 
             return PartialView("SuccessRedirect", "/");
+        }
+
+        public ActionResult GetFile()
+        {
+            return File(Server.MapPath("~/Images/WannaCry.png"), "image/png", "WannaCry.png");
+        }
+
+        public ActionResult GetJson()
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+
+            return Json(db.Product.Take(5), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult About()
