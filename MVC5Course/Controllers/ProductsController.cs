@@ -11,12 +11,8 @@ using MVC5Course.Models.ViewModel;
 
 namespace MVC5Course.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
-        ProductRepository repo = RepositoryHelper.GetProductRepository();
-
-        //private FabricsEntities db = new FabricsEntities();
-
         // GET: Products
         public ActionResult Index(bool Active = true)
         {
