@@ -11,9 +11,13 @@
 
 <h2>ListProducts</h2>
 
-<form method="post">
-    篩選:
+<form method="get">
+    商品名稱:
     @Html.TextBox("q")
+    庫存數量:
+    @Html.TextBox("Stock_S", null, new { size = "10", type = "number" }) ~
+    @Html.TextBox("Stock_E", null, new { size = "10", type = "number" })
+    <button>搜尋</button>
 </form>
 
 <table class="table">
