@@ -20,7 +20,7 @@ namespace MVC5Course.Controllers
         // GET: Products
         public ActionResult Index(bool Active = true)
         {
-            var data = repo.GetProduct列表頁所有資料(Active, showAll: true);
+            var data = repo.GetProduct列表頁所有資料(Active, showAll: false);
 
             return View(data);
         }
