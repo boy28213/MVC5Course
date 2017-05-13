@@ -18,6 +18,11 @@ namespace MVC5Course.Controllers
             return View();
         }
 
+        public ActionResult GetFile()
+        {
+            return File(Server.MapPath("~/Images/WannaCry.png"), "image/png", "WannaCry.png");
+        }
+
         public ActionResult SomeAction()
         {
             //Response.Write("<script>alert('建立成功!'); location.href='/';</script>");
