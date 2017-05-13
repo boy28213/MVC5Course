@@ -13,7 +13,10 @@ namespace MVC5Course.Controllers
             return View();
         }
 
-
+        public ActionResult Unknown()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {
