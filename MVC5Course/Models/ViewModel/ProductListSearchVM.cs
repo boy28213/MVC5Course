@@ -8,6 +8,11 @@ namespace MVC5Course.Models.ViewModel
 {
     public class ProductListSearchVM : IValidatableObject
     {
+        public ProductListSearchVM()
+        {
+            this.Stock_S = 0;
+            this.Stock_E = 9999;
+        }
         public string q { get; set; }
         public int Stock_S { get; set; }
         public int Stock_E { get; set; }

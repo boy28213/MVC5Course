@@ -90,11 +90,17 @@ namespace MVC5Course.Controllers
         // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductName,Price,Active,Stock")] Product product)
+        public ActionResult Edit(int id, FormCollection form)
         {
-            if (ModelState.IsValid)
+            //[Bind(Include = "ProductId,ProductName,Price,Active,Stock")]Product product
+
+            var product = repo.Get單筆資料ByProductId(id);
+
+            //if (ModelState.IsValid)
+            if (TryUpdateModel(product, 
+                new string[] { "ProductId", "ProductName", "Price", "Active", "Stock" }))
             {
-                repo.Update(product);
+                //repo.Update(product);
                 repo.UnitOfWork.Commit();
                 return RedirectToAction("Index");
             }
