@@ -11,7 +11,7 @@
         @foreach (var entity in ex.EntityValidationErrors)
         {
             <li>
-                實體模型: @entity.Entry.Entity.GetType().Name<br />
+                實體模型1: @entity.Entry.Entity.GetType().Name<br />
                 <br />
                 <ol>
                     @foreach (var error in entity.ValidationErrors)
