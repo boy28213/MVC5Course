@@ -42,6 +42,8 @@ namespace MVC5Course.Controllers
         [SharedViewBag]
         public ActionResult About()
         {
+            throw new ArgumentException("Error Handled!!");
+
             return View();
         }
 
