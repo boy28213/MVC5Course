@@ -21,15 +21,21 @@ namespace MVC5Course.Models
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            //if (this.Stock < 10)
-            //{
-            //    yield return new ValidationResult("庫存數量過少", new string[] { "Stock" });
-            //}
+            if (this.Price > 100 && this.Stock > 5)
+            {
+                yield return new ValidationResult("價格與庫存數量不合理",
+                    new string[] { "Price", "Stock" });
+            }
 
-            //if (this.Price < 50)
-            //{
-            //    yield return new ValidationResult("價格太便宜", new string[] { "Price" });
-            //}
+            using (var db = new FabricsEntities())
+            {
+                var prod = db.Product.FirstOrDefault(p => p.ProductId == this.ProductId);
+                if (prod != null && prod.OrderLine.Count() > 5 && this.Stock == 0)
+                {
+                    yield return new ValidationResult("Stock 與訂單數量不匹配",
+                        new string[] { "Stock" });
+                }
+            }
             yield break;
         }
     }
