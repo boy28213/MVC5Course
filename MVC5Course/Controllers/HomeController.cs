@@ -45,10 +45,10 @@ namespace MVC5Course.Controllers
             return View();
         }
 
-        [SharedViewBag(MyProperty = "Your application page.")]
+        [SharedViewBag(MyProperty = "")]
         public ActionResult PartialAbout()
         {
-            //ViewBag.Message = "Your application descripyion page.";
+            //ViewBag.Message = "Your application page.";
 
             if (Request.IsAjaxRequest())
             {

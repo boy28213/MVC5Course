@@ -7,7 +7,8 @@ namespace MVC5Course.Controllers
     {
         protected FabricsEntities db = new FabricsEntities();
         protected ProductRepository repo = RepositoryHelper.GetProductRepository();
-
+        
+        [LocalOnly]
         public ActionResult Debug()
         {
             return Content("Hello");
