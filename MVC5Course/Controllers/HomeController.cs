@@ -39,16 +39,16 @@ namespace MVC5Course.Controllers
             return Json(db.Product.Take(5), JsonRequestBehavior.AllowGet);
         }
 
+        [SharedViewBag]
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
+        [SharedViewBag(MyProperty = "Your application page.")]
         public ActionResult PartialAbout()
         {
-            ViewBag.Message = "Your application descripyion page.";
+            //ViewBag.Message = "Your application descripyion page.";
 
             if (Request.IsAjaxRequest())
             {
