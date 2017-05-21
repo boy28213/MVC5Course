@@ -15,7 +15,7 @@ namespace MVC5Course.Controllers
         private FabricsEntities db = new FabricsEntities();
 
         // GET: Clients1
-        public ActionResult Index()
+        public ActionResult Index(int CreditRatingFilter = -1, string LastNameFilter = "")
         {
             var ratings = (from p in db.Client select p.CreditRating)
                           .Distinct()
@@ -29,7 +29,17 @@ namespace MVC5Course.Controllers
 
             ViewBag.LastNameFilter = new SelectList(lastNames);
 
-            var client = db.Client.Include(c => c.Occupation);
+            var client = db.Client.AsQueryable();
+
+            if (CreditRatingFilter >= 0)
+            {
+                client = client.Where(p => p.CreditRating == CreditRatingFilter);
+            }
+            if (!String.IsNullOrEmpty(LastNameFilter))
+            {
+                client = client.Where(p => p.LastName == LastNameFilter);
+            }
+
             return View(client.Take(10));
         }
 
