@@ -7,7 +7,11 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    篩選:
+    @Html.DropDownList("CreditRatingFilter", "選擇信用等級")
+    @Html.DropDownList("LastNameFilter", "選擇姓")
+
+
 </p>
 <table class="table">
     <tr>

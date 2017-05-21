@@ -17,6 +17,18 @@ namespace MVC5Course.Controllers
         // GET: Clients1
         public ActionResult Index()
         {
+            var ratings = (from p in db.Client select p.CreditRating)
+                          .Distinct()
+                          .OrderBy(p => p).ToList();
+
+            ViewBag.CreditRatingFilter = new SelectList(ratings);
+
+            var lastNames = (from p in db.Client select p.LastName)
+                          .Distinct()
+                          .OrderBy(p => p).ToList();
+
+            ViewBag.LastNameFilter = new SelectList(lastNames);
+
             var client = db.Client.Include(c => c.Occupation);
             return View(client.Take(10));
         }

@@ -443,9 +443,9 @@
     <Content Include="Views\Form\Edit.cshtml" />
     <Content Include="Views\Clients1\Create.cshtml" />
     <Content Include="Views\Clients1\Delete.cshtml" />
-    <Content Include="Views\Clients1\Details.cshtml" />
     <Content Include="Views\Clients1\Edit.cshtml" />
     <Content Include="Views\Clients1\Index.cshtml" />
+    <Content Include="Views\Clients1\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
