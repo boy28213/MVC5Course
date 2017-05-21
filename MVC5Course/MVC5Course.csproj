@@ -446,6 +446,7 @@
     <Content Include="Views\Clients1\Edit.cshtml" />
     <Content Include="Views\Clients1\Index.cshtml" />
     <Content Include="Views\Clients1\Details.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Client.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -461,6 +462,7 @@
     <Folder Include="font\" />
     <Folder Include="img\" />
     <Folder Include="js\" />
+    <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
