@@ -63,7 +63,10 @@ namespace MVC5Course.Models
         [DisplayName("商品庫存")]
         //[Range(0, 100, ErrorMessage = "請設定正確的商品價格範圍")]
         public Nullable<decimal> Stock { get; set; }
-    
+
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime CreatedOn { get; set; }
+
         public virtual ICollection<OrderLine> OrderLine { get; set; }
     }
 }
